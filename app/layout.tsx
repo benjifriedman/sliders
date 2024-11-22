@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wave Sliders",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
