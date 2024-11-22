@@ -21,41 +21,79 @@ const Slider = React.forwardRef<
     setValue([newValue]);
   };
 
+  // const colorArray = [
+  //   "bg-red-500",
+  //   "bg-orange-500",
+  //   "bg-yellow-500",
+  //   "bg-green-500",
+  //   "bg-blue-500",
+  //   "bg-indigo-500",
+  //   "bg-purple-500",
+  //   "bg-pink-500",
+  //   "bg-rose-500",
+  //   "bg-teal-500",
+  //   "bg-cyan-500",
+  //   "bg-emerald-500",
+  //   "bg-lime-500",
+  //   "bg-amber-500",
+  //   "bg-orange-500",
+  //   "bg-red-500",
+  //   "bg-pink-500",
+  //   "bg-purple-500",
+  //   "bg-indigo-500",
+  //   "bg-blue-500",
+  //   "bg-teal-500",
+  //   "bg-cyan-500",
+  //   "bg-emerald-500",
+  //   "bg-lime-500",
+  //   "bg-amber-500",
+  //   "bg-yellow-500",
+  // ];
+
   const colorArray = [
+    // Warm colors
     "bg-red-500",
-    "bg-orange-500",
-    "bg-yellow-500",
-    "bg-green-500",
+    // Cool colors
     "bg-blue-500",
+    // Warm colors
+    "bg-orange-500",
+    // Cool colors
+    "bg-teal-500",
+    // Warm colors
+    "bg-yellow-500",
+    // Cool colors
     "bg-indigo-500",
-    "bg-purple-500",
-    "bg-pink-500",
+    // Warm colors
     "bg-rose-500",
-    "bg-teal-500",
+    // Cool colors
     "bg-cyan-500",
+    // Earth tones
     "bg-emerald-500",
-    "bg-lime-500",
-    "bg-amber-500",
-    "bg-orange-500",
-    "bg-red-500",
-    "bg-pink-500",
+    // Vibrant colors
     "bg-purple-500",
-    "bg-indigo-500",
-    "bg-blue-500",
-    "bg-teal-500",
-    "bg-cyan-500",
-    "bg-emerald-500",
+    // Earth tones
     "bg-lime-500",
+    // Vibrant colors
+    "bg-pink-500",
+    // Earth tones
     "bg-amber-500",
-    "bg-yellow-500",
   ];
 
   // const color1 = colorArray[Math.floor(Math.random() * colorArray.length)];
   // const color2 = colorArray[Math.floor(Math.random() * colorArray.length)];
 
-  const valueIndex = Math.floor(defaultValue[0] / 10) % colorArray.length;
-  const color1 = colorArray[valueIndex];
-  const color2 = colorArray[(valueIndex + 1) % colorArray.length];
+  // const valueIndex = Math.floor(defaultValue[0] / 10) % colorArray.length;
+  // const color1 = colorArray[valueIndex];
+  // const color2 = colorArray[(valueIndex + 1) % colorArray.length];
+
+  // New color selection logic
+  const baseIndex = Math.floor((defaultValue[0] * colorArray.length) / 100);
+  const color1 = colorArray[baseIndex];
+  // Jump to roughly opposite side of the color array for maximum contrast
+  const color2 =
+    colorArray[
+      (baseIndex + Math.floor(colorArray.length / 2)) % colorArray.length
+    ];
 
   return (
     <SliderPrimitive.Root
